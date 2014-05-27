@@ -1,5 +1,11 @@
 FoundersAssembly::Application.routes.draw do
-  resources :updates
+  resources :updates do
+  #->Prelang (voting/acts_as_votable)
+  member do
+    get "vote"
+  end
+end
+
 
   resources :feedbacks do
   #->Prelang (voting/acts_as_votable)
