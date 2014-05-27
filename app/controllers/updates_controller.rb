@@ -29,6 +29,7 @@ class UpdatesController < ApplicationController
   # POST /updates.json
   def create
     @update = Update.new(update_params)
+    @update.user = current_user
 
     respond_to do |format|
       if @update.save
