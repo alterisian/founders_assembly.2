@@ -1,37 +1,28 @@
-<%= form_for(@update) do |f| %>
-  <% if @update.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@update.errors.count, "error") %> prohibited this update from being saved:</h2>
-
-      <ul>
-      <% @update.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @update, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :progress, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :progress, :class => 'text-field form-control' %>
     </div>
-  <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :pains, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :pains, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :plans, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :plans, :class => 'text-field form-control' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :project_id %><br>
-    <%= f.text_field :project_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :progress %><br>
-    <%= f.text_area :progress %>
-  </div>
-  <div class="field">
-    <%= f.label :pains %><br>
-    <%= f.text_area :pains %>
-  </div>
-  <div class="field">
-    <%= f.label :plans %><br>
-    <%= f.text_area :plans %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  updates_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
