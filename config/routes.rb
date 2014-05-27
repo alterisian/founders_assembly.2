@@ -1,4 +1,5 @@
 FoundersAssembly::Application.routes.draw do
+  get "landings/index"
   resources :projects do
   #->Prelang (voting/acts_as_votable)
   member do
